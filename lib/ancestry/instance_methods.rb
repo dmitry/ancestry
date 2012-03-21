@@ -184,7 +184,7 @@ module Ancestry
 
     # Subtree
     def subtree_conditions
-      ["#{primary_key_with_table} = ? or #{self.base_class.table_name}.#{self.base_class.ancestry_column} like ? or #{self.base_class.table_name}.#{self.base_class.ancestry_column} = ?", self.id, "#{child_ancestry}/%", child_ancestry]
+      ["#{primary_key_with_table} = ? or #{self.ancestry_base_class.table_name}.#{self.ancestry_base_class.ancestry_column} like ? or #{self.ancestry_base_class.table_name}.#{self.ancestry_base_class.ancestry_column} = ?", self.id, "#{child_ancestry}/%", child_ancestry]
     end
 
     def subtree depth_options = {}
