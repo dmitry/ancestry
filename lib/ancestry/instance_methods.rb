@@ -150,7 +150,7 @@ module Ancestry
 
     # Siblings
     def sibling_conditions
-      {primary_key_with_table => read_attribute(self.base_class.ancestry_column)}
+      {self.ancestry_base_class.ancestry_column => read_attribute(self.ancestry_base_class.ancestry_column)}
     end
 
     def siblings
@@ -226,7 +226,7 @@ module Ancestry
     end
 
     def primary_key_with_table
-      "#{self.base_class.table_name}.#{self.base_class.primary_key}"
+      "#{self.ancestry_base_class.table_name}.#{self.ancestry_base_class.primary_key}"
     end
 
     def primary_key_type
